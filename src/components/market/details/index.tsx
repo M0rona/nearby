@@ -24,6 +24,15 @@ export function Details({ data }: DetailsProps) {
         <Info icon={IconMapPin} description={data.address} />
         <Info icon={IconPhone} description={data.phone} />
       </View>
+
+      <View style={s.group}>
+        <Text style={s.title}>Regulamento</Text>
+        {data.rules.map((rule) => (
+          <Text key={rule.id} style={s.rule}>
+            {`\u2022 ${rule.description}`}
+          </Text>
+        ))}
+      </View>
     </View>
   );
 }

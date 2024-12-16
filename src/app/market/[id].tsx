@@ -6,6 +6,8 @@ import { Loading } from "@/components/loading";
 import { Cover } from "@/components/market/cover";
 import { MarketType } from "@/types/market";
 import { Details } from "@/components/market/details";
+import { Coupon } from "@/components/market/coupon";
+import { Button } from "@/components/button";
 
 type MarketProps = MarketType & {
   cover: string;
@@ -13,6 +15,7 @@ type MarketProps = MarketType & {
 
 export default function Market() {
   const [data, setData] = useState<MarketProps>();
+  const [coupon, setCoupon] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const params = useLocalSearchParams<{ id: string }>();
 
@@ -51,6 +54,13 @@ export default function Market() {
       <Cover uri={data.cover} />
 
       <Details data={data} />
+      {coupon && <Coupon code={coupon} />}
+
+      <View style={{ padding: 32 }}>
+        <Button>
+          <Button.Title>Ler QR Code</Button.Title>
+        </Button>
+      </View>
     </View>
   );
 }
