@@ -1,3 +1,4 @@
+import { StatusBar } from "react-native";
 import { Stack } from "expo-router";
 import { colors } from "@/styles/theme";
 
@@ -25,6 +26,11 @@ export default function Layout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor="transparent"
+        translucent
+      />
       <Stack
         screenOptions={{
           headerShown: false,
